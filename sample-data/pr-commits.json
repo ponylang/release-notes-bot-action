@@ -1,0 +1,84 @@
+// https://api.github.com/repos/ponylang/action-testing/pulls/57/commits
+// commits from a PR
+
+[
+  {
+    "sha": "61478d51e34a68d6b07c171be8288b4e046aa91a",
+    "node_id": "MDY6Q29tbWl0MjE4ODMzNTEyOjYxNDc4ZDUxZTM0YTY4ZDZiMDdjMTcxYmU4Mjg4YjRlMDQ2YWE5MWE=",
+    "commit": {
+      "author": {
+        "name": "Sean T. Allen",
+        "email": "sean@seantallen.com",
+        "date": "2020-05-20T01:43:51Z"
+      },
+      "committer": {
+        "name": "Sean T. Allen",
+        "email": "sean@seantallen.com",
+        "date": "2020-05-20T01:43:51Z"
+      },
+      "message": "Log this",
+      "tree": {
+        "sha": "d42a8f3a87e0f62f7fd6e9304395149915d8e470",
+        "url": "https://api.github.com/repos/ponylang/action-testing/git/trees/d42a8f3a87e0f62f7fd6e9304395149915d8e470"
+      },
+      "url": "https://api.github.com/repos/ponylang/action-testing/git/commits/61478d51e34a68d6b07c171be8288b4e046aa91a",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null
+      }
+    },
+    "url": "https://api.github.com/repos/ponylang/action-testing/commits/61478d51e34a68d6b07c171be8288b4e046aa91a",
+    "html_url": "https://github.com/ponylang/action-testing/commit/61478d51e34a68d6b07c171be8288b4e046aa91a",
+    "comments_url": "https://api.github.com/repos/ponylang/action-testing/commits/61478d51e34a68d6b07c171be8288b4e046aa91a/comments",
+    "author": {
+      "login": "SeanTAllen",
+      "id": 193596,
+      "node_id": "MDQ6VXNlcjE5MzU5Ng==",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/193596?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/SeanTAllen",
+      "html_url": "https://github.com/SeanTAllen",
+      "followers_url": "https://api.github.com/users/SeanTAllen/followers",
+      "following_url": "https://api.github.com/users/SeanTAllen/following{/other_user}",
+      "gists_url": "https://api.github.com/users/SeanTAllen/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/SeanTAllen/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/SeanTAllen/subscriptions",
+      "organizations_url": "https://api.github.com/users/SeanTAllen/orgs",
+      "repos_url": "https://api.github.com/users/SeanTAllen/repos",
+      "events_url": "https://api.github.com/users/SeanTAllen/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/SeanTAllen/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "SeanTAllen",
+      "id": 193596,
+      "node_id": "MDQ6VXNlcjE5MzU5Ng==",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/193596?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/SeanTAllen",
+      "html_url": "https://github.com/SeanTAllen",
+      "followers_url": "https://api.github.com/users/SeanTAllen/followers",
+      "following_url": "https://api.github.com/users/SeanTAllen/following{/other_user}",
+      "gists_url": "https://api.github.com/users/SeanTAllen/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/SeanTAllen/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/SeanTAllen/subscriptions",
+      "organizations_url": "https://api.github.com/users/SeanTAllen/orgs",
+      "repos_url": "https://api.github.com/users/SeanTAllen/repos",
+      "events_url": "https://api.github.com/users/SeanTAllen/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/SeanTAllen/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "eec56591ddd0b2ad7eac556c3d2faf31c7343c65",
+        "url": "https://api.github.com/repos/ponylang/action-testing/commits/eec56591ddd0b2ad7eac556c3d2faf31c7343c65",
+        "html_url": "https://github.com/ponylang/action-testing/commit/eec56591ddd0b2ad7eac556c3d2faf31c7343c65"
+      }
+    ]
+  }
+]
