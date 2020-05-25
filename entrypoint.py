@@ -62,7 +62,7 @@ if release_notes_file is None:
   sys.exit(0)
 
 print(INFO + "Setting up git configuration." + ENDC)
-git = git.Repo.init(path='.', bare=true).git
+git = git.Repo.init(path='.', bare=True).git
 git.config('--global', 'user.name', os.environ['INPUT_GIT_USER_NAME'])
 git.config('--global', 'user.email', os.environ['INPUT_GIT_USER_EMAIL'])
 
