@@ -66,9 +66,9 @@ git = git.Repo('.').git
 git.config('--global', 'user.name', os.environ['INPUT_GIT_USER_NAME'])
 git.config('--global', 'user.email', os.environ['INPUT_GIT_USER_EMAIL'])
 
-print(INFO + "Making sure repo is up to date." + ENDC)
-git.checkout('master')
-git.pull()
+print(INFO + "Cloning repo." + ENDC)
+clone_from = "https://" + os.environ['GITHUB_ACTOR'] + ":" + os.environ['API_CREDENTIALS'] + "@github.com/" + repo_name
+git.clone("--depth=1", clone_from, '.')
 
 release_notes = open(release_notes_file, 'r').read().rstrip() + '\n\n'
 next_release_notes = open('.release-notes/next-release.md', 'a+')
@@ -81,6 +81,4 @@ git.add('.release-notes/next-release.md')
 git.commit('-m', "Updating release notes for PR #" + str(pr_id)+ " [skip-ci]")
 
 print(INFO + "Pushing updated release notes." + ENDC)
-push_to = "https://" + os.environ['API_CREDENTIALS'] + "@github.com/" + repo_name + ".git"
-git.push(push_to, 'master')
-#os.system("/usr/bin/git push " + push_to + " master")
+git.push(')
