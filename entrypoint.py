@@ -38,21 +38,19 @@ repo_name = event_data['repository']['full_name']
 print(INFO + "Finding PR associated with " + sha + " in " + repo_name + ENDC)
 query = "q=is:merged+sha:" + sha + "+repo:" + repo_name
 print(INFO + "Query: " + query + ENDC)
-results = github.search_issues(query)
+results = github.search_issues(query='is:merged', sha=sha, repo=repo_name)
 
-for i in results:
-  print(i.id())
 print(results)
 
 if results.totalCount == 0:
   print(NOTICE + "No merged PR associated with " + sha + ". Exiting.")
   sys.exit(0)
 
-pr_id = results[0]['pull_request']['id']
+pr_id = results[0].number
 
 # find associated release notes file
 release_notes_file = None
-repo = github.repo(repo_name)
+repo = github.get_repo(repo_name)
 for commit in event_data['commits']:
     c = repo.get_commit(sha=commit['id'])
     for f in c.files:
