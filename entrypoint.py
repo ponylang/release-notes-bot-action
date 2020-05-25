@@ -73,7 +73,7 @@ git.pull()
 release_notes = open(release_notes_file, 'r').read().rstrip() + '\n'
 next_release_notes = open('.release-notes/next-release-notes.md', 'a+')
 next_release_notes.write(release_notes)
-
+next_release_notes.close()
 
 print(INFO + "Adding git changes." + ENDC)
 git.rm(release_notes_file)
