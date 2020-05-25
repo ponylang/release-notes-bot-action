@@ -39,7 +39,7 @@ print(INFO + "Finding PR associated with " + sha + " in " + repo_name + ENDC)
 query = "is:merged+sha:" + sha + "+repo:" + repo_name
 print(INFO + "Query: " + query + ENDC)
 results = github.search_issues(query)
-print results
+print(results)
 
 if results.totalCount == 0:
   print(NOTICE + "No merged PR associated with " + sha + ". Exiting.")
