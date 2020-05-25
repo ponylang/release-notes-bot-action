@@ -8,7 +8,7 @@ This document is aimed at members of the team who might be cutting a release of 
 
 ## Releasing
 
-Please note that this document was written with the assumption that you are using a clone of the `changelog-bot` repo. You have to be using a clone rather than a fork. It is advised to your do this by making a fresh clone of the `release-notes-bot-action` repo from which you will release.
+Please note that this document was written with the assumption that you are using a clone of the `release-notes-bot-action` repo. You have to be using a clone rather than a fork. It is advised to your do this by making a fresh clone of the `release-notes-bot-action` repo from which you will release.
 
 ```bash
 git clone git@github.com:ponylang/release-notes-bot-action.git release-notes-bot-action-release-clean
