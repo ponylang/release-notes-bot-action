@@ -16,6 +16,8 @@ name: Release Notes Bot
 
 on:
   push:
+    branches:
+      - master
     paths-ignore:
       - .release-notes/next-release.md
 
