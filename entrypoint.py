@@ -61,14 +61,13 @@ if release_notes_file is None:
   print(NOTICE + "No release notes fie found in commits. Exiting." + ENDC)
   sys.exit(0)
 
-print(INFO + "Setting up git configuration." + ENDC)
-git = git.Repo('.').git
-git.config('--global', 'user.name', os.environ['INPUT_GIT_USER_NAME'])
-git.config('--global', 'user.email', os.environ['INPUT_GIT_USER_EMAIL'])
-
 print(INFO + "Cloning repo." + ENDC)
 clone_from = "https://" + os.environ['GITHUB_ACTOR'] + ":" + os.environ['API_CREDENTIALS'] + "@github.com/" + repo_name
-git.clone("--depth=1", clone_from, '.')
+git = git.clone("--depth=1", clone_from, '.').git
+
+print(INFO + "Setting up git configuration." + ENDC)
+git.config('--global', 'user.name', os.environ['INPUT_GIT_USER_NAME'])
+git.config('--global', 'user.email', os.environ['INPUT_GIT_USER_EMAIL'])
 
 release_notes = open(release_notes_file, 'r').read().rstrip() + '\n\n'
 next_release_notes = open('.release-notes/next-release.md', 'a+')
