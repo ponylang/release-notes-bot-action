@@ -51,9 +51,7 @@ release_notes_file = None
 repo = github.get_repo(repo_name)
 for commit in event_data['commits']:
     c = repo.get_commit(sha=commit['id'])
-    print(c)
     for f in c.files:
-      print(f)
       if f.filename.startswith('.release-notes/'):
         if not f.filename.endswith('next-release.md'):
           release_notes_file = f.filename
@@ -62,10 +60,6 @@ for commit in event_data['commits']:
 if release_notes_file is None:
   print(NOTICE + "No release notes fie found in commits. Exiting." + ENDC)
   sys.exit(0)
-
-release_notes = open(release_notes_file, 'r').read().rstrip() + '\n'
-next_release_notes = open('.release-notes/next-release-notes.md', 'a+')
-next_release_notes.write(release_notes)
 
 print(INFO + "Setting up git configuration." + ENDC)
 git = git.Repo('.').git
@@ -76,10 +70,14 @@ print(INFO + "Making sure repo is up to date." + ENDC)
 git.checkout('master')
 git.pull()
 
+release_notes = open(release_notes_file, 'r').read().rstrip() + '\n'
+next_release_notes = open('.release-notes/next-release-notes.md', 'a+')
+next_release_notes.write(release_notes)
+
 print(INFO + "Adding git changes." + ENDC)
 git.add('.release-notes/next-release.md')
 git.rm(release_notes_file)
-git.commit('-m', "Updating release notes for PR #" + pr + " [skip-ci]")
+git.commit('-m', "Updating release notes for PR #" + pr_id + " [skip-ci]")
 
 print(INFO + "Pushing updated release notes." + ENDC)
 push_to = "https://" + os.environ['API_CREDENTIALS'] + "@github.com" + repo_name + ".git"
