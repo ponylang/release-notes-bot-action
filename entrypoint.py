@@ -3,18 +3,6 @@
 import git,json,os,sys
 from github import Github
 
-# x FLOW WE NEED --> on push to master...
-# x CHECK TO SEE IF THERE IS AN ASSOCIATED PR (via search)
-# x EXIT IF NO
-# GITHUB_EVENT_PATH get commits
-# FOREACH get sha, look up commit from commits url
-# check files for release notes file
-# IF/WHEN FOUND...
-# get release notes content from `raw_url`
-# add release notes to end of `next-release.md`
-# delete release notes addition from PR
-# git add .release-notes/next-release.md
-
 ENDC   = '\033[0m'
 ERROR  = '\033[31m'
 INFO   = '\033[34m'
