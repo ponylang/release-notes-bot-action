@@ -83,5 +83,5 @@ git.commit('-m', "Updating release notes for PR #" + str(pr_id)+ " [skip-ci]")
 
 print(INFO + "Pushing updated release notes." + ENDC)
 push_to = "https://" + os.environ['API_CREDENTIALS'] + "@github.com/" + repo_name + ".git"
-//git.push(push_to, 'master')
+#git.push(push_to, 'master')
 os.system("/usr/bin/git " + push_to + " master")
