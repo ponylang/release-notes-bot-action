@@ -77,7 +77,7 @@ next_release_notes.write(release_notes)
 print(INFO + "Adding git changes." + ENDC)
 git.add('.release-notes/next-release.md')
 git.rm(release_notes_file)
-git.commit('-m', "Updating release notes for PR #" + pr_id + " [skip-ci]")
+git.commit('-m', "Updating release notes for PR #" + str(pr_id)+ " [skip-ci]")
 
 print(INFO + "Pushing updated release notes." + ENDC)
 push_to = "https://" + os.environ['API_CREDENTIALS'] + "@github.com" + repo_name + ".git"
