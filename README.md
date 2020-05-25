@@ -30,7 +30,7 @@ jobs:
           git_user_name: "Ponylang Main Bot"
           git_user_email: "ponylang.main@gmail.com"
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          API_CREDENTIALS: ${{ secrets.GITHUB_TOKEN }}
 ```
 
 Note, you do not need to create `GITHUB_TOKEN`. It is already provided by GitHub. You merely need to make it available to the release-notes-bot action.
