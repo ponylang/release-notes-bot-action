@@ -68,8 +68,7 @@ git.config('--global', 'user.email', os.environ['INPUT_GIT_USER_EMAIL'])
 
 print(INFO + "Cloning repo." + ENDC)
 clone_from = "https://" + os.environ['GITHUB_ACTOR'] + ":" + os.environ['API_CREDENTIALS'] + "@github.com/" + repo_name
-os.system("/usr/bin/git clone --depth=1 " + clone_from + " .")
-#git.clone("--depth=1", clone_from, '.')
+git.clone(clone_from)
 
 release_notes = open(release_notes_file, 'r').read().rstrip() + '\n\n'
 next_release_notes = open('.release-notes/next-release.md', 'a+')
