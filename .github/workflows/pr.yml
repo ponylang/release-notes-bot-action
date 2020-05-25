@@ -11,16 +11,6 @@ jobs:
       - name: Docker build
         run: "docker build --pull ."
 
-  shellcheck:
-    name: Shellcheck
-    runs-on: ubuntu-latest
-    container:
-      image: ponylang/shared-docker-ci-shellcheck:20191008
-    steps:
-      - uses: actions/checkout@v1
-      - name: Shellcheck entrypoint.sh
-        run: shellcheck entrypoint.sh
-
   verify-changelog:
     name: Verify CHANGELOG is valid
     runs-on: ubuntu-latest
