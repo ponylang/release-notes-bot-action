@@ -1,11 +1,11 @@
-FROM alpine
+FROM alpine:3.11
 
-COPY entrypoint.sh /entrypoint.sh
+COPY entrypoint.py /entrypoint.py
 
-RUN apk add --update bash \
-  curl \
+RUN apk add --update \
   git \
-  grep \
-  jq
+  py3-pip
 
-ENTRYPOINT ["/entrypoint.sh"]
+RUN pip3 install gitpython PyGithub
+
+ENTRYPOINT ["/entrypoint.py"]
