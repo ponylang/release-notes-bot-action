@@ -40,8 +40,6 @@ query = "q=is:merged+sha:" + sha + "+repo:" + repo_name
 print(INFO + "Query: " + query + ENDC)
 results = github.search_issues(query='is:merged', sha=sha, repo=repo_name)
 
-print(results)
-
 if results.totalCount == 0:
   print(NOTICE + "No merged PR associated with " + sha + ". Exiting.")
   sys.exit(0)
@@ -53,7 +51,9 @@ release_notes_file = None
 repo = github.get_repo(repo_name)
 for commit in event_data['commits']:
     c = repo.get_commit(sha=commit['id'])
+    print(c)
     for f in c.files:
+      print(f)
       if f.filename.startswith('.release-notes/'):
         if not f.filename.endswith('next-release.md'):
           release_notes_file = f.filename
