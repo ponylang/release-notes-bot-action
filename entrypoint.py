@@ -37,6 +37,7 @@ repo_name = event_data['repository']['full_name']
 # find associated PR (if any)
 print(INFO + "Finding PR associated with " + sha + " in " + repo_name + ENDC)
 query = "is:merged+sha:" + sha + "+repo:" + repo_name
+print(INFO + "Query: " + query + ENDC)
 results = github.search_issues(query)
 
 if results.totalCount == 0:
