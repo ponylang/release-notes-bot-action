@@ -26,7 +26,6 @@ jobs:
     runs-on: ubuntu-latest
     name: Update release notes
     steps:
-      - uses: actions/checkout@v1
       - name: Update
         uses: ponylang/release-notes-bot-action@initial
         with:

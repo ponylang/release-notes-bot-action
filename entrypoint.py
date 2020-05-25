@@ -81,4 +81,4 @@ git.add('.release-notes/next-release.md')
 git.commit('-m', "Updating release notes for PR #" + str(pr_id)+ " [skip-ci]")
 
 print(INFO + "Pushing updated release notes." + ENDC)
-git.push(')
+git.push()
