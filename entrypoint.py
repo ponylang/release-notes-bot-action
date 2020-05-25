@@ -71,7 +71,7 @@ git.checkout('master')
 git.pull()
 
 release_notes = open(release_notes_file, 'r').read().rstrip() + '\n'
-next_release_notes = open('.release-notes/next-release-notes.md', 'a+')
+next_release_notes = open('.release-notes/next-release.md', 'a+')
 next_release_notes.write(release_notes)
 next_release_notes.close()
 
