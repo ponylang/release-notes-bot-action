@@ -74,11 +74,10 @@ release_notes = open(release_notes_file, 'r').read().rstrip() + '\n'
 next_release_notes = open('.release-notes/next-release-notes.md', 'a+')
 next_release_notes.write(release_notes)
 
-git.rm(release_notes_file)
 
 print(INFO + "Adding git changes." + ENDC)
+git.rm(release_notes_file)
 git.add('.release-notes/next-release.md')
-git.add(release_notes_file)
 git.commit('-m', "Updating release notes for PR #" + str(pr_id)+ " [skip-ci]")
 
 print(INFO + "Pushing updated release notes." + ENDC)
