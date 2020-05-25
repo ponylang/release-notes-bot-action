@@ -1,4 +1,4 @@
-#!/bin/python3
+#!/usr/bin/python3
 
 import git,json,os,sys
 from github import Github
@@ -20,7 +20,7 @@ ERROR  = '\033[31m'
 INFO   = '\033[34m'
 NOTICE = '\033[33m'
 
-if not os.environ['API_CREDENTIALS']:
+if not 'API_CREDENTIALS' in os.environ:
   print(ERROR + "API_CREDENTIALS needs to be set in env. Exiting." + ENDC)
   sys.exit(1)
 

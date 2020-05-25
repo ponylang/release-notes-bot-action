@@ -8,4 +8,4 @@ RUN apk add --update \
 
 RUN pip3 install gitpython PyGithub
 
-ENTRYPOINT ["/usr/bin/python3 /entrypoint.py"]
+ENTRYPOINT ["/entrypoint.py"]
