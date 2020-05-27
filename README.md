@@ -6,7 +6,7 @@ Automatically adds a new release notes entry to once a PR is merged. Two conditi
   - changelog - added
   - changelog - fixed
   - changelog - changed
-* A release notes addition file must be part a commit for the PR.
+* A release notes addition file must be part of a commit for the PR.
 
 
 ## Example workflow
