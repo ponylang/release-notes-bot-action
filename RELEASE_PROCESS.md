@@ -28,7 +28,7 @@ git push origin release-0.3.1
 
 ## If something goes wrong
 
-The release process can be restarted at various points in it's life-cycle by pushing specially crafted tags.
+The release process can be restarted at various points in its life-cycle by pushing specially crafted tags.
 
 ## Start a release
 
