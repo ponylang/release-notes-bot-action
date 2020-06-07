@@ -1,5 +1,5 @@
 name: 'Release Notes Bot'
-description: 'Updates release notes if certain labels are set'
+description: 'Updates release notes if a release notes addition file is present in an associated PR.'
 runs:
   using: 'docker'
   image: 'Dockerfile'

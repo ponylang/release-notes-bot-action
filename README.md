@@ -1,13 +1,8 @@
 # Release-notes-bot action
 
-Automatically adds a new release notes entry to once a PR is merged. Two conditions must be met for the action to trigger.
+Automatically adds a new release notes entry to the upcoming release notes file once a PR is merged if a corresponding release notes addition file is present.
 
-* One of 3 labels must be applied to the PR in order for a release entry to be added:
-  - changelog - added
-  - changelog - fixed
-  - changelog - changed
-* A release notes addition file must be part of a commit for the PR.
-
+A repo must have a `.release-notes` directory and a `.release-notes/next-release.md` file for the action to work properly.
 
 ## Example workflow
 
