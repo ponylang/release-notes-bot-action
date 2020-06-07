@@ -9,8 +9,6 @@ jobs:
   trigger-release-announcement:
     name: Trigger release announcement
     runs-on: ubuntu-latest
-    container:
-      image: ponylang/shared-docker-ci-release:20191107
     steps:
       - uses: actions/checkout@v1
       - name: Trigger
