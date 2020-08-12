@@ -46,7 +46,7 @@ for commit in event_data['commits']:
 
 # if no release notes file, exit
 if release_notes_file is None:
-  print(NOTICE + "No release notes fie found in commits. Exiting." + ENDC)
+  print(NOTICE + "No release notes file found in commits. Exiting." + ENDC)
   sys.exit(0)
 
 print(INFO + "Cloning repo." + ENDC)
