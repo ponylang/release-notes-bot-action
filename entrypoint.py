@@ -33,16 +33,19 @@ if results.totalCount == 0:
   sys.exit(0)
 
 pr_id = results[0].number
+print(INFO + "PR found " + str(pr_id) + ENDC)
 
 # find associated release notes file
 release_notes_file = None
 repo = github.get_repo(repo_name)
 for commit in event_data['commits']:
-    c = repo.get_commit(sha=commit['id'])
-    for f in c.files:
-      if f.filename.startswith('.release-notes/'):
-        if not f.filename.endswith('next-release.md'):
-          release_notes_file = f.filename
+  print(INFO + "Examining files in commit " + str(commit['id']) + ENDC)
+  c = repo.get_commit(sha=commit['id'])
+  for f in c.files:
+    print(INFO + "Found file " + f.filename + ENDC)
+    if f.filename.startswith('.release-notes/'):
+      if not f.filename.endswith('next-release.md'):
+        release_notes_file = f.filename
 
 # if no release notes file, exit
 if release_notes_file is None:
