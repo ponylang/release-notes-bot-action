@@ -6,6 +6,7 @@ All notable changes to this project will be documented in this file. This projec
 
 ### Fixed
 
+- Only get release notes from added files ([PR #8](https://github.com/ponylang/release-notes-bot-action/pull/8))
 
 ### Added
 
