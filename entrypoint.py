@@ -79,4 +79,16 @@ print(INFO + "Pulling latest changes." + ENDC)
 git.pull()
 
 print(INFO + "Pushing updated release notes." + ENDC)
-git.push()
+push_failures = 0
+while(True):
+  try:
+    git.push()
+    break
+  except:
+    push_failures += 1
+    if (push_failures <= 5):
+      print(NOTICE + "Failed to push. Going to pull and try again." + ENDC)
+      git.pull()
+    else:
+      print(ERROR + "Failed to push again. Giving up." + ENDC)
+      raise
