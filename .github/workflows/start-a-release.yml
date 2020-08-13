@@ -2,7 +2,7 @@ name: Start a release
 
 on:
   push:
-    tags: release-*.*.*
+    tags: release-\d+.\d+.\d+
 
 jobs:
   start-a-release:
@@ -11,8 +11,10 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: Start
-        uses: ponylang/release-bot-action@0.1.0
+        uses: ponylang/release-bot-action@0.3.0
         with:
           step: start-a-release
+          git_user_name: "Ponylang Main Bot"
+          git_user_email: "ponylang.main@gmail.com"
         env:
           RELEASE_TOKEN: ${{ secrets.RELEASE_TOKEN }}
