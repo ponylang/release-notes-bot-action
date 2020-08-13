@@ -14,6 +14,7 @@ All notable changes to this project will be documented in this file. This projec
 
 ### Changed
 
+- Pull latest changes before pushing ([PR #10](https://github.com/ponylang/release-notes-bot-action/pull/10))
 
 ## [0.1.0] - 2020-06-21
 
