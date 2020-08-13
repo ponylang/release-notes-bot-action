@@ -42,6 +42,8 @@ for commit in event_data['commits']:
   print(INFO + "Examining files in commit " + str(commit['id']) + ENDC)
   c = repo.get_commit(sha=commit['id'])
   for f in c.files:
+    if f.status != "added":
+      continue
     print(INFO + "Found file " + f.filename + ENDC)
     if f.filename.startswith('.release-notes/'):
       if not f.filename.endswith('next-release.md'):
