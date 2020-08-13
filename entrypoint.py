@@ -36,7 +36,7 @@ pr_id = results[0].number
 print(INFO + "PR found " + str(pr_id) + ENDC)
 
 # find associated release notes file
-release_notes_file = None
+release_notes_files = []
 repo = github.get_repo(repo_name)
 for commit in event_data['commits']:
   print(INFO + "Examining files in commit " + str(commit['id']) + ENDC)
@@ -47,10 +47,10 @@ for commit in event_data['commits']:
     print(INFO + "Found file " + f.filename + ENDC)
     if f.filename.startswith('.release-notes/'):
       if not f.filename.endswith('next-release.md'):
-        release_notes_file = f.filename
+        release_notes_files.append(f.filename)
 
-# if no release notes file, exit
-if release_notes_file is None:
+# if no release notes files, exit
+if not release_notes_files:
   print(NOTICE + "No release notes file found in commits. Exiting." + ENDC)
   sys.exit(0)
 
@@ -62,13 +62,16 @@ print(INFO + "Setting up git configuration." + ENDC)
 git.config('--global', 'user.name', os.environ['INPUT_GIT_USER_NAME'])
 git.config('--global', 'user.email', os.environ['INPUT_GIT_USER_EMAIL'])
 
-release_notes = open(release_notes_file, 'r').read().rstrip() + '\n\n'
+release_notes = ""
+for rnf in release_notes_files:
+  release_notes += open(rnf, 'r').read().rstrip() + '\n\n'
 next_release_notes = open('.release-notes/next-release.md', 'a+')
 next_release_notes.write(release_notes)
 next_release_notes.close()
 
 print(INFO + "Adding git changes." + ENDC)
-git.rm(release_notes_file)
+for rnf in release_notes_files:
+  git.rm(rnf)
 git.add('.release-notes/next-release.md')
 git.commit('-m', "Updating release notes for PR #" + str(pr_id)+ " [skip-ci]")
 
