@@ -3,7 +3,11 @@ name: Changelog Bot
 on:
   push:
     branches:
-      - master
+      - '**'
+    tags-ignore:
+      - '**'
+    paths-ignore:
+      - CHANGELOG.md
 
 jobs:
   changelog-bot:
