@@ -15,6 +15,7 @@ on:
       - master
     paths-ignore:
       - .release-notes/next-release.md
+      - .release-notes/\d+.\d+.\d+.md
 
 jobs:
   release-notes-bot:
