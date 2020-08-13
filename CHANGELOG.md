@@ -11,6 +11,7 @@ All notable changes to this project will be documented in this file. This projec
 
 ### Added
 
+- Retry if an error is encountered while pushing updating release notes ([PR #12](https://github.com/ponylang/release-notes-bot-action/pull/12))
 
 ### Changed
 
