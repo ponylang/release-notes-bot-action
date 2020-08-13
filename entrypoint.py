@@ -75,5 +75,8 @@ for rnf in release_notes_files:
 git.add('.release-notes/next-release.md')
 git.commit('-m', "Updating release notes for PR #" + str(pr_id)+ " [skip-ci]")
 
+print(INFO + "Pulling latest changes." + ENDC)
+git.pull()
+
 print(INFO + "Pushing updated release notes." + ENDC)
 git.push()
