@@ -3,6 +3,8 @@
 import git,json,os,sys
 from github import Github
 
+changelog_labels = ['changelog - added', 'changelog - changed', 'changelog - fixed']
+
 ENDC   = '\033[0m'
 ERROR  = '\033[31m'
 INFO   = '\033[34m'
@@ -62,23 +64,38 @@ print(INFO + "Setting up git configuration." + ENDC)
 git.config('--global', 'user.name', os.environ['INPUT_GIT_USER_NAME'])
 git.config('--global', 'user.email', os.environ['INPUT_GIT_USER_EMAIL'])
 
-release_notes = ""
-for rnf in release_notes_files:
-  release_notes += open(rnf, 'r').read().rstrip() + '\n\n'
-next_release_notes = open('.release-notes/next-release.md', 'a+')
-next_release_notes.write(release_notes)
-next_release_notes.close()
+# check to make sure that the PR had a changelog label
+# if it didn't delete the release notes file(s) and exit.
+pull_request = repo.get_pull(pr_id)
+found_changelog_label = False
+for l in pull_request.labels:
+  print(INFO + "PR had label: " + l.name + ENDC)
+  if l.name in changelog_labels:
+    found_changelog_label = True
+    break
 
-print(INFO + "Adding git changes." + ENDC)
-for rnf in release_notes_files:
-  git.rm(rnf)
-git.add('.release-notes/next-release.md')
-git.commit('-m', "Updating release notes for PR #" + str(pr_id)+ " [skip-ci]")
+if found_changelog_label:
+  print(NOTICE + "Processing release notes." + ENDC)
+  release_notes = ""
+  for rnf in release_notes_files:
+    release_notes += open(rnf, 'r').read().rstrip() + '\n\n'
+  next_release_notes = open('.release-notes/next-release.md', 'a+')
+  next_release_notes.write(release_notes)
+  next_release_notes.close()
 
-print(INFO + "Pulling latest changes." + ENDC)
-git.pull()
+  print(INFO + "Adding git changes." + ENDC)
+  for rnf in release_notes_files:
+    git.rm(rnf)
+  git.add('.release-notes/next-release.md')
+  git.commit('-m', "Updates release notes for PR #" + str(pr_id))
+else:
+  print(NOTICE + "Found release notes but no changelog label." + ENDC)
+  for rnf in release_notes_files:
+    git.rm(rnf)
+  git.commit('-m', "Removes release notes from changelog labelless PR #"
+    + str(pr_id))
 
-print(INFO + "Pushing updated release notes." + ENDC)
+print(INFO + "Pushing changes." + ENDC)
 push_failures = 0
 while(True):
   try:
