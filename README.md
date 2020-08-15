@@ -22,7 +22,9 @@ name: Release Notes Bot
 on:
   push:
     branches:
-      - master
+      - '**'
+    tags-ignore:
+      - '**'
     paths-ignore:
       - .release-notes/next-release.md
       - .release-notes/\d+.\d+.\d+.md

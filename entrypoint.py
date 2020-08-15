@@ -57,8 +57,11 @@ if not release_notes_files:
   sys.exit(0)
 
 print(INFO + "Cloning repo." + ENDC)
+pull_request = repo.get_pull(pr_id)
 clone_from = "https://" + os.environ['GITHUB_ACTOR'] + ":" + os.environ['API_CREDENTIALS'] + "@github.com/" + repo_name
-git = git.Repo.clone_from(clone_from, '.').git
+pr_base_branch = pull_request.base.ref
+clone_options = ["--branch=" + pr_base_branch]
+git = git.Repo.clone_from(clone_from, '.', multi_options=clone_options).git
 
 print(INFO + "Setting up git configuration." + ENDC)
 git.config('--global', 'user.name', os.environ['INPUT_GIT_USER_NAME'])
@@ -66,7 +69,6 @@ git.config('--global', 'user.email', os.environ['INPUT_GIT_USER_EMAIL'])
 
 # check to make sure that the PR had a changelog label
 # if it didn't delete the release notes file(s) and exit.
-pull_request = repo.get_pull(pr_id)
 found_changelog_label = False
 for l in pull_request.labels:
   print(INFO + "PR had label: " + l.name + ENDC)
