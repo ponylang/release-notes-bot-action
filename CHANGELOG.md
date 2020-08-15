@@ -12,6 +12,7 @@ All notable changes to this project will be documented in this file. This projec
 ### Added
 
 - Retry if an error is encountered while pushing updating release notes ([PR #12](https://github.com/ponylang/release-notes-bot-action/pull/12))
+- Add ability to work with branches other than the default branch ([PR #18](https://github.com/ponylang/release-notes-bot-action/pull/18))
 
 ### Changed
 
