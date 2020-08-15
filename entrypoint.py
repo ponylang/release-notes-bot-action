@@ -70,12 +70,9 @@ pull_request = repo.get_pull(pr_id)
 found_changelog_label = False
 for l in pull_request.labels:
   print(INFO + "PR had label: " + l.name + ENDC)
-  try:
-    changelog_labels.index(l.name)
+  if l.name in changelog_labels:
     found_changelog_label = True
     break
-  except:
-    None
 
 if found_changelog_label:
   print(NOTICE + "Processing release notes." + ENDC)
