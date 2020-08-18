@@ -98,7 +98,7 @@ else:
     for rnf in release_notes_files:
         git.rm(rnf)
     git.commit('-m',
-        "Removes release notes from changelog labelless PR #" + str(pr_id))
+               "Removes release notes from changelog labelless PR #" + str(pr_id))
 
 print(INFO + "Pushing changes." + ENDC)
 push_failures = 0
