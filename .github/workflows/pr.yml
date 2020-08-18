@@ -30,9 +30,13 @@ jobs:
         run: |
           python3 -m venv .venv
           .venv/bin/pip install -r requirements.txt
+      - name: Move the dependencies
+        run: mv .venv /home/runner/work/_temp/_github_workflow
       - name: Lint codebase
         uses: docker://github/super-linter:v3
         env:
           VALIDATE_ALL_CODEBASE: true
           DEFAULT_BRANCH: master
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PYTHONPATH: "/github/workspace/:\
+            /github/workflow/.venv/lib/python3.6/site-packages"
