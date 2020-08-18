@@ -1,16 +1,16 @@
 #!/usr/bin/python3
 
-import git,json,os,sys
+import git, json, os, sys
 from github import Github
 
 changelog_labels = ['changelog - added', 'changelog - changed', 'changelog - fixed']
 
-ENDC   = '\033[0m'
-ERROR  = '\033[31m'
-INFO   = '\033[34m'
+ENDC = '\033[0m'
+ERROR = '\033[31m'
+INFO = '\033[34m'
 NOTICE = '\033[33m'
 
-if not 'API_CREDENTIALS' in os.environ:
+if 'API_CREDENTIALS' not in os.environ:
     print(ERROR + "API_CREDENTIALS needs to be set in env. Exiting." + ENDC)
     sys.exit(1)
 
@@ -70,9 +70,9 @@ git.config('--global', 'user.email', os.environ['INPUT_GIT_USER_EMAIL'])
 # check to make sure that the PR had a changelog label
 # if it didn't delete the release notes file(s) and exit.
 found_changelog_label = False
-for l in pull_request.labels:
-    print(INFO + "PR had label: " + l.name + ENDC)
-    if l.name in changelog_labels:
+for prl in pull_request.labels:
+    print(INFO + "PR had label: " + prl.name + ENDC)
+    if prl.name in changelog_labels:
         found_changelog_label = True
         break
 
@@ -95,7 +95,7 @@ else:
     for rnf in release_notes_files:
         git.rm(rnf)
     git.commit('-m', "Removes release notes from changelog labelless PR #"
-    + str(pr_id))
+        + str(pr_id))
 
 print(INFO + "Pushing changes." + ENDC)
 push_failures = 0
@@ -107,7 +107,7 @@ while True:
         push_failures += 1
         if (push_failures <= 5):
             print(NOTICE + "Failed to push. Going to pull and try again." + ENDC)
-        git.pull()
+            git.pull()
         else:
             print(ERROR + "Failed to push again. Giving up." + ENDC)
             raise
