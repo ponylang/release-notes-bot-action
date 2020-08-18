@@ -1,6 +1,9 @@
 #!/usr/bin/python3
 
-import git, json, os, sys
+import git
+import json
+import os
+import sys
 from github import Github
 
 changelog_labels = ['changelog - added', 'changelog - changed', 'changelog - fixed']
@@ -103,7 +106,7 @@ while True:
     try:
         git.push()
         break
-    except:
+    except Exception:
         push_failures += 1
         if (push_failures <= 5):
             print(NOTICE + "Failed to push. Going to pull and try again." + ENDC)
