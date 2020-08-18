@@ -94,8 +94,8 @@ else:
     print(NOTICE + "Found release notes but no changelog label." + ENDC)
     for rnf in release_notes_files:
         git.rm(rnf)
-    git.commit('-m', "Removes release notes from changelog labelless PR #"
-        + str(pr_id))
+    git.commit('-m',
+        "Removes release notes from changelog labelless PR #" + str(pr_id))
 
 print(INFO + "Pushing changes." + ENDC)
 push_failures = 0
