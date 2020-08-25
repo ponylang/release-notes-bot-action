@@ -6,6 +6,9 @@ RUN apk add --update \
   git \
   py3-pip
 
-RUN pip3 install gitpython PyGithub
+RUN pip3 install \
+  gitpython \
+  PyGithub \
+  pylint
 
 ENTRYPOINT ["/entrypoint.py"]
