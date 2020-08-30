@@ -6,6 +6,7 @@ All notable changes to this project will be documented in this file. This projec
 
 ### Fixed
 
+- Fix broken push retries ([PR #24](https://github.com/ponylang/release-notes-bot-action/pull/24))
 
 ### Added
 
