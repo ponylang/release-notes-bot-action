@@ -2,17 +2,11 @@
 
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a CHANGELOG](http://keepachangelog.com/).
 
-## [unreleased] - unreleased
+## [0.3.1] - 2020-08-30
 
 ### Fixed
 
 - Fix broken push retries ([PR #24](https://github.com/ponylang/release-notes-bot-action/pull/24))
-
-### Added
-
-
-### Changed
-
 
 ## [0.3.0] - 2020-08-26
 
