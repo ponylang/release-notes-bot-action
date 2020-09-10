@@ -12,6 +12,7 @@ All notable changes to this project will be documented in this file. This projec
 
 ### Changed
 
+- Rebase on pull ([PR #26](https://github.com/ponylang/release-notes-bot-action/pull/26))
 
 ## [0.3.2] - 2020-08-31
 
