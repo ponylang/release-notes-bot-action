@@ -111,10 +111,10 @@ else:
                "Removes release notes from changelog labelless PR #"
                + str(pr_id))
 
-print(INFO + "Pushing changes." + ENDC)
 push_failures = 0
 while True:
     try:
+        print(INFO + "Pushing changes." + ENDC)
         git.push()
         break
     except GitCommandError:
