@@ -94,9 +94,8 @@ if found_changelog_label:
     release_notes = ""
     for rnf in release_notes_files:
         release_notes += open(rnf, 'r').read().rstrip() + '\n\n'
-    next_release_notes = open('.release-notes/next-release.md', 'a+')
-    next_release_notes.write(release_notes)
-    next_release_notes.close()
+    with open('.release-notes/next-release.md', 'a+') as next_release_notes:
+        next_release_notes.write(release_notes)
 
     print(INFO + "Adding git changes." + ENDC)
     for rnf in release_notes_files:
