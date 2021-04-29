@@ -11,6 +11,7 @@ All notable changes to this project will be documented in this file. This projec
 
 ### Added
 
+- Create images on release ([PR #29](https://github.com/ponylang/release-notes-bot-action/pull/29))
 
 ### Changed
 
