@@ -7,3 +7,7 @@ Now each push and pull attempt will be logged.
 ## Fix build error coming from PyGitHub dependency
 
 With the release of a new version of PyGitHub, the pynacl dependency changed and no longer builds. We are fine using the previous version of PyGitHub so this update pins us to that version. If we need to upgrade in the future, we'll need to fix the "can't build pynacl" issue.
+## Create images on release
+
+Permanant, unchanging images for this action are now available in DockerHub and will be updated on each release. See our examples for more details on how to use.
+
