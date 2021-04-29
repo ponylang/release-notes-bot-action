@@ -8,7 +8,7 @@ RUN apk add --update --no-cache \
 
 RUN pip3 install \
   gitpython \
-  PyGithub \
+  PyGithub==v1.54.1 \
   pylint
 
 ENTRYPOINT ["/entrypoint.py"]
