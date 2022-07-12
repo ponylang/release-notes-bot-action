@@ -1,12 +1,13 @@
-name: 'Release Notes Bot'
-description: 'Updates release notes if a release notes addition file is present in an associated PR.'
-runs:
-  using: 'docker'
-  image: 'Dockerfile'
+description: Updates release notes if a release notes addition file is present in
+  an associated PR.
 inputs:
-  git_user_name:
-    description: 'Name to associate with commits'
-    required: true
   git_user_email:
-    description: 'Email to associate with commits'
+    description: Email to associate with commits
     required: true
+  git_user_name:
+    description: Name to associate with commits
+    required: true
+name: Release Notes Bot
+runs:
+  image: docker://ponylang/release-notes-bot-action:0.3.5
+  using: docker
