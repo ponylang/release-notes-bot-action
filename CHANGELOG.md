@@ -2,14 +2,11 @@
 
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a CHANGELOG](http://keepachangelog.com/).
 
-## [unreleased] - unreleased
+## [0.3.5] - 2022-07-12
 
 ### Fixed
 
 - Update to work with newer versions of git ([PR #33](https://github.com/ponylang/release-notes-bot-action/pull/33))
-
-### Added
-
 
 ### Changed
 
