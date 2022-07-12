@@ -26,7 +26,8 @@ if 'API_CREDENTIALS' not in os.environ:
 github = Github(os.environ['API_CREDENTIALS'])
 
 # get json data for our event
-event_data = json.load(open(os.environ['GITHUB_EVENT_PATH'], 'r'))
+with open(os.environ['GITHUB_EVENT_PATH'], 'r', encoding='utf-8') as f:
+    event_data = json.load(f)
 
 # grab info needed to find PR
 sha = event_data['head_commit']['id']
@@ -94,8 +95,9 @@ if found_changelog_label:
     print(NOTICE + "Processing release notes." + ENDC)
     release_notes = ""
     for rnf in release_notes_files:
-        release_notes += open(rnf, 'r').read().rstrip() + '\n\n'
-    with open('.release-notes/next-release.md', 'a+') as next_release_notes:
+        with open(rnf, 'r', encoding='utf-8') as f:
+            release_notes += f.read().rstrip() + '\n\n'
+    with open('.release-notes/next-release.md', 'a+', encoding='utf-8') as next_release_notes:
         next_release_notes.write(release_notes)
 
     print(INFO + "Adding git changes." + ENDC)
