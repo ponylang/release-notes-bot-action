@@ -79,6 +79,7 @@ print(INFO + "Setting up git configuration." + ENDC)
 git.config('--global', 'user.name', os.environ['INPUT_GIT_USER_NAME'])
 git.config('--global', 'user.email', os.environ['INPUT_GIT_USER_EMAIL'])
 git.config('--global', 'branch.autosetuprebase', 'always')
+git.config('--global', '--add', 'safe.directory', os.environ['GITHUB_WORKSPACE'])
 
 # check to make sure that the PR had a changelog label
 # if it didn't delete the release notes file(s) and exit.
