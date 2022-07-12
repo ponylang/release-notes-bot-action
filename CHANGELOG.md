@@ -13,6 +13,7 @@ All notable changes to this project will be documented in this file. This projec
 
 ### Changed
 
+- Update base image ([PR #35](https://github.com/ponylang/release-notes-bot-action/pull/35))
 
 ## [0.3.4] - 2021-04-29
 
