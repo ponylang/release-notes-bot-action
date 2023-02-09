@@ -9,6 +9,7 @@ All notable changes to this project will be documented in this file. This projec
 
 ### Added
 
+- Add sleep and retry when secondary rate limit impacts on PR search ([PR #38](https://github.com/ponylang/release-notes-bot-action/pull/38))
 
 ### Changed
 
