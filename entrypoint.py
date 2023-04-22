@@ -66,7 +66,7 @@ while True:
             raise
 
 # find associated release notes file
-release_notes_files = []
+release_notes_files = set()
 repo = github.get_repo(repo_name)
 for commit in event_data['commits']:
     print(INFO + "Examining files in commit " + str(commit['id']) + ENDC)
@@ -77,7 +77,7 @@ for commit in event_data['commits']:
         print(INFO + "Found file " + f.filename + ENDC)
         if f.filename.startswith('.release-notes/'):
             if not f.filename.endswith('next-release.md'):
-                release_notes_files.append(f.filename)
+                release_notes_files.add(f.filename)
 
 # if no release notes files, exit
 if not release_notes_files:
