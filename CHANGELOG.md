@@ -6,6 +6,7 @@ All notable changes to this project will be documented in this file. This projec
 
 ### Fixed
 
+- Fix bug when release notes files appeared in more than one commit ([PR #40](https://github.com/ponylang/release-notes-bot-action/pull/40))
 
 ### Added
 
