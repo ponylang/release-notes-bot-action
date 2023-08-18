@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout main
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           ref: "main"
           token: ${{ secrets.RELEASE_TOKEN }}
@@ -31,7 +31,7 @@ jobs:
     needs:
       - pre-artefact-creation
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Docker login
         run: docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
         env:
@@ -46,7 +46,7 @@ jobs:
     needs:
       - build-and-push-image
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           ref: "main"
           token: ${{ secrets.RELEASE_TOKEN }}
