@@ -2,14 +2,11 @@
 
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a CHANGELOG](http://keepachangelog.com/).
 
-## [unreleased] - unreleased
+## [0.3.8] - 2024-10-16
 
 ### Fixed
 
 - Handle Additional GitHub secondary rate limit failure ([PR #60](https://github.com/ponylang/release-notes-bot-action/pull/60))
-
-### Added
-
 
 ### Changed
 
