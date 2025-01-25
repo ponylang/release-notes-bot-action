@@ -13,6 +13,7 @@ All notable changes to this project will be documented in this file. This projec
 ### Changed
 
 - Use Alpine 3.20 as our base image ([PR #61](https://github.com/ponylang/release-notes-bot-action/pull/61))
+- Update tense of generated commit messages ([PR #62](https://github.com/ponylang/release-notes-bot-action/pull/62))
 
 ## [0.3.8] - 2024-10-16
 
