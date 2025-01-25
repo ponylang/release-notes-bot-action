@@ -138,13 +138,13 @@ if found_changelog_label:
     for rnf in release_notes_files:
         git.rm(rnf)
     git.add('.release-notes/next-release.md')
-    git.commit('-m', "Updates release notes for PR #" + str(pr_id))
+    git.commit('-m', "Update release notes for PR #" + str(pr_id))
 else:
     print(NOTICE + "Found release notes but no changelog label." + ENDC)
     for rnf in release_notes_files:
         git.rm(rnf)
     git.commit('-m',
-               "Removes release notes from changelog labelless PR #"
+               "Remove release notes from changelog labelless PR #"
                + str(pr_id))
 
 push_failures = 0
