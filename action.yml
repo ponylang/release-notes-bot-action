@@ -1,10 +1,10 @@
 description: Updates release notes if a release notes addition file is present in
   an associated PR.
 inputs:
-  git_user_email:
+  GIT_USER_EMAIL:
     description: Email to associate with commits
     required: true
-  git_user_name:
+  GIT_USER_NAME:
     description: Name to associate with commits
     required: true
 name: Release Notes Bot
