@@ -52,7 +52,7 @@ while True:
             count+=1
 
         print("count is " + str(count))
-        print("number: " + str(results[0].number))
+        #print("number: " + str(results[0].number))
         print("total: " + str(results.totalCount))
 
         if results.totalCount == 0:
