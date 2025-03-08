@@ -9,5 +9,5 @@ inputs:
     required: true
 name: Release Notes Bot
 runs:
-  image: Dockerfile
+  image: docker://ponylang/release-notes-bot-action:0.3.10
   using: docker
