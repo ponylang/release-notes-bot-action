@@ -53,7 +53,7 @@ while True:
         for r in results:
             count+=1
 
-        print("count is " + count)
+        print("count is " + str(count))
         print("len results " + len(results))
 
         if len(results) == 0 and count == 0:
