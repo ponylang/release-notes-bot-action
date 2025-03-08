@@ -6,6 +6,7 @@ All notable changes to this project will be documented in this file. This projec
 
 ### Fixed
 
+- Fix "it no longer works" bug ([PR #65](https://github.com/ponylang/release-notes-bot-action/pull/65))
 
 ### Added
 
@@ -109,4 +110,3 @@ All notable changes to this project will be documented in this file. This projec
 ### Added
 
 - Initial release
-
