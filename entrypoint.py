@@ -49,8 +49,15 @@ while True:
 
         print(dir(results))
 
-        if results.totalCount == 0:
-            print(NOTICE + "No merged PR associated with " + sha + ". Exiting.")
+        count = 0
+        for r in results:
+            count+=1
+
+        print("count is " + count)
+        print("len results " + len(results))
+
+        if len(results) == 0 and count == 0:
+            print(NOTICE + "No merged PR associated with " + sha + ". Exiting." + ENDC)
             sys.exit(0)
 
         pr_id = results[0].number
