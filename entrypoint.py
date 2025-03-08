@@ -47,15 +47,14 @@ while True:
         results = github.search_issues(query='is:merged', sha=sha,
                                        repo=repo_name)
 
-        print(dir(results))
-
         count = 0
         for r in results:
             count+=1
 
         print("count is " + str(count))
+        printt("number: " + str(results[0].number))
 
-        if results.totalCount == 0 and count == 0:
+        if results.totalCount == 0:
             print(NOTICE + "No merged PR associated with " + sha + ". Exiting." + ENDC)
             sys.exit(0)
 
