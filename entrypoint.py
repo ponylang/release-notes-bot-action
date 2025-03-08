@@ -53,7 +53,7 @@ while True:
 
         print("count is " + str(count))
         #print("number: " + str(results[0].number))
-        print("total: " + str(results.totalCount))
+        #print("total: " + str(results.totalCount))
 
         if results.totalCount == 0:
             print(NOTICE + "No merged PR associated with " + sha + ". Exiting." + ENDC)
