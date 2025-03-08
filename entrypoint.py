@@ -54,9 +54,8 @@ while True:
             count+=1
 
         print("count is " + str(count))
-        print("len results " + str(len(results)))
 
-        if len(results) == 0 and count == 0:
+        if results.totalCount == 0 and count == 0:
             print(NOTICE + "No merged PR associated with " + sha + ". Exiting." + ENDC)
             sys.exit(0)
 
