@@ -47,13 +47,17 @@ while True:
         results = github.search_issues(query='is:merged', sha=sha,
                                        repo=repo_name)
 
-        if results.totalCount == 0:
-            print(NOTICE + "No merged PR associated with " + sha + ". Exiting.")
-            sys.exit(0)
+        # something really weird has started happening after years where
+        # totalCount gives us 0 when the API call from the command line does
+        # not. The PyGithub people. So now we just try to get the first result.
 
-        pr_id = results[0].number
-        print(INFO + "PR found " + str(pr_id) + ENDC)
-        break
+        try:
+            pr_id = results[0].number
+            print(INFO + "PR found " + str(pr_id) + ENDC)
+            break
+        except:
+            print(NOTICE + "No merged PR associated with " + sha + ". Exiting." + ENDC)
+            sys.exit(0)
     except RateLimitExceededException:
         search_failures += 1
         if search_failures <= 5:
