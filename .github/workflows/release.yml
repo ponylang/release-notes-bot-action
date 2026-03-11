@@ -20,7 +20,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout main
-        uses: actions/checkout@v4.1.1
+        uses: actions/checkout@v6.0.2
         with:
           ref: "main"
           token: ${{ secrets.RELEASE_TOKEN }}
@@ -35,7 +35,7 @@ jobs:
     needs:
       - pre-artefact-creation
     steps:
-      - uses: actions/checkout@v4.1.1
+      - uses: actions/checkout@v6.0.2
       - name: Login to GitHub Container Registry
         # v2.2.0
         uses: docker/login-action@5139682d94efc37792e6b54386b5b470a68a4737
@@ -52,7 +52,7 @@ jobs:
     needs:
       - build-and-push-image
     steps:
-      - uses: actions/checkout@v4.1.1
+      - uses: actions/checkout@v6.0.2
         with:
           ref: "main"
           token: ${{ secrets.RELEASE_TOKEN }}
