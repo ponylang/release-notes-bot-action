@@ -41,6 +41,7 @@ print(INFO + "Finding PR associated with " + sha + " in " + repo_name + ENDC)
 query = "q=is:merged+sha:" + sha + "+repo:" + repo_name
 print(INFO + "Query: " + query + ENDC)
 pr_id = 0
+no_pr_failures = 0
 search_failures = 0
 while True:
     try:
@@ -56,8 +57,19 @@ while True:
             print(INFO + "PR found " + str(pr_id) + ENDC)
             break
         except IndexError:
-            print(NOTICE + "No merged PR associated with " + sha + ". Exiting." + ENDC)
-            sys.exit(0)
+            no_pr_failures += 1
+            if no_pr_failures <= 5:
+                print(NOTICE
+                      + "No merged PR associated with " + sha + " yet. "
+                      + "Sleeping and trying again."
+                      + ENDC)
+                time.sleep(10)
+            else:
+                print(NOTICE
+                      + "No merged PR associated with " + sha
+                      + ". Exiting."
+                      + ENDC)
+                sys.exit(0)
     except RateLimitExceededException:
         search_failures += 1
         if search_failures <= 5:
