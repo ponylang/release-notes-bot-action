@@ -2,17 +2,11 @@
 
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a CHANGELOG](http://keepachangelog.com/).
 
-## [unreleased] - unreleased
+## [0.3.11] - 2026-03-24
 
 ### Fixed
 
 - Fix GitHub API race condition when finding PR for a commit ([PR #70](https://github.com/ponylang/release-notes-bot-action/pull/70))
-
-### Added
-
-
-### Changed
-
 
 ## [0.3.10] - 2025-03-08
 
