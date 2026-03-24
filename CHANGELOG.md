@@ -6,6 +6,7 @@ All notable changes to this project will be documented in this file. This projec
 
 ### Fixed
 
+- Fix GitHub API race condition when finding PR for a commit ([PR #70](https://github.com/ponylang/release-notes-bot-action/pull/70))
 
 ### Added
 
