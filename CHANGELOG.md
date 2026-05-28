@@ -6,6 +6,7 @@ All notable changes to this project will be documented in this file. This projec
 
 ### Fixed
 
+- Fix intermittent crash when looking up the PR for a commit ([PR #76](https://github.com/ponylang/release-notes-bot-action/pull/76))
 
 ### Added
 
