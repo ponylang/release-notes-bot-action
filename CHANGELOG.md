@@ -6,6 +6,7 @@ All notable changes to this project will be documented in this file. This projec
 
 ### Fixed
 
+- Improve resilience to GitHub API failures ([PR #78](https://github.com/ponylang/release-notes-bot-action/pull/78))
 
 ### Added
 
