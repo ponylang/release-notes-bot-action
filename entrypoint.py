@@ -91,7 +91,8 @@ while True:
             print(ERROR + "Search failed again. Giving up." + ENDC)
             raise
     except GithubException as e:
-        if "You have exceeded a secondary rate limit" in e.data['message']:
+        msg = e.data.get('message', '') if isinstance(e.data, dict) else ''
+        if "You have exceeded a secondary rate limit" in msg:
             search_failures += 1
             if search_failures <= 5:
                 delay = 60 * (2 ** (search_failures - 1))
