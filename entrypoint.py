@@ -23,6 +23,45 @@ ERROR = '\033[31m'
 INFO = '\033[34m'
 NOTICE = '\033[33m'
 
+def github_api_call(fn, description):
+    """Call fn() with retry and exponential backoff on rate limits and connection errors."""
+    api_failures = 0
+    while True:
+        try:
+            return fn()
+        except (RateLimitExceededException,
+                requests.exceptions.ConnectionError):
+            api_failures += 1
+            if api_failures <= 5:
+                backoff = 60 * (2 ** (api_failures - 1))
+                print(NOTICE
+                      + description + " failed. "
+                      + "Sleeping " + str(backoff) + "s and trying again."
+                      + ENDC)
+                time.sleep(backoff)
+            else:
+                print(ERROR + description + " failed again. Giving up." + ENDC)
+                raise
+        except GithubException as e:
+            err_msg = e.data.get('message', '') if isinstance(e.data, dict) else ''
+            if "You have exceeded a secondary rate limit" in err_msg:
+                api_failures += 1
+                if api_failures <= 5:
+                    backoff = 60 * (2 ** (api_failures - 1))
+                    print(NOTICE
+                          + description + " failed due to secondary rate limit. "
+                          + "Sleeping " + str(backoff) + "s and trying again."
+                          + ENDC)
+                    time.sleep(backoff)
+                else:
+                    print(ERROR
+                          + description + " failed again. Giving up."
+                          + ENDC)
+                    raise
+            else:
+                raise
+
+
 if 'API_CREDENTIALS' not in os.environ:
     print(ERROR + "API_CREDENTIALS needs to be set in env. Exiting." + ENDC)
     sys.exit(1)
@@ -121,10 +160,11 @@ while True:
 
 # find associated release notes file
 release_notes_files = set()
-repo = github.get_repo(repo_name)
+repo = github_api_call(lambda: github.get_repo(repo_name), "Get repo")
 for commit in event_data['commits']:
     print(INFO + "Examining files in commit " + str(commit['id']) + ENDC)
-    c = repo.get_commit(sha=commit['id'])
+    c = github_api_call(lambda c=commit: repo.get_commit(sha=c['id']),
+                        "Get commit")
     for f in c.files:
         if f.status != "added":
             continue
@@ -139,7 +179,7 @@ if not release_notes_files:
     sys.exit(0)
 
 print(INFO + "Cloning repo." + ENDC)
-pull_request = repo.get_pull(pr_id)
+pull_request = github_api_call(lambda: repo.get_pull(pr_id), "Get pull request")
 clone_from = "https://" + os.environ['GITHUB_ACTOR'] \
               + ":" \
               + os.environ['API_CREDENTIALS'] \
