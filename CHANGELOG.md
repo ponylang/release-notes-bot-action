@@ -8,6 +8,7 @@ All notable changes to this project will be documented in this file. This projec
 
 - Improve resilience to GitHub API failures ([PR #78](https://github.com/ponylang/release-notes-bot-action/pull/78))
 - Fix crash on unexpected GitHub error response format ([PR #79](https://github.com/ponylang/release-notes-bot-action/pull/79))
+- Retry on connection errors for all GitHub API calls ([PR #80](https://github.com/ponylang/release-notes-bot-action/pull/80))
 
 ### Added
 
