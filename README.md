@@ -22,7 +22,7 @@ name: Release Notes Bot
 on:
   push:
     branches:
-      - '**'
+      - main
     tags-ignore:
       - '**'
     paths-ignore:
