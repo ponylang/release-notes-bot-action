@@ -2,7 +2,6 @@
 # pylint: disable=C0103
 # pylint: disable=C0114
 
-import random
 import time
 import json
 import os
@@ -76,11 +75,6 @@ with open(os.environ['GITHUB_EVENT_PATH'], 'r', encoding='utf-8') as f:
 # grab info needed to find PR
 sha = event_data['head_commit']['id']
 repo_name = event_data['repository']['full_name']
-
-# stagger concurrent runs to avoid rate limit collisions
-jitter = random.uniform(0, 60)
-print(INFO + "Waiting " + str(int(jitter)) + "s before starting." + ENDC)
-time.sleep(jitter)
 
 # find associated PR (if any)
 print(INFO + "Finding PR associated with " + sha + " in " + repo_name + ENDC)
