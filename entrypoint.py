@@ -98,8 +98,8 @@ while True:
             break
         except IndexError:
             no_pr_failures += 1
-            if no_pr_failures <= 5:
-                delay = 10 * (2 ** (no_pr_failures - 1))
+            if no_pr_failures <= 2:
+                delay = 15 * no_pr_failures
                 print(NOTICE
                       + "No merged PR associated with " + sha + " yet. "
                       + "Sleeping " + str(delay) + "s and trying again."
