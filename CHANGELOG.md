@@ -12,6 +12,7 @@ All notable changes to this project will be documented in this file. This projec
 
 ### Changed
 
+- Reduce retry delay when PR isn't immediately available ([PR #85](https://github.com/ponylang/release-notes-bot-action/pull/85))
 
 ## [0.3.14] - 2026-08-09
 
